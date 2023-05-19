@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		A53286562A14FE230007D208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286552A14FE230007D208 /* AppDelegate.swift */; };
 		A53286582A14FE230007D208 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286572A14FE230007D208 /* SceneDelegate.swift */; };
-		A532865A2A14FE230007D208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286592A14FE230007D208 /* ViewController.swift */; };
-		A532865D2A14FE230007D208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A532865B2A14FE230007D208 /* Main.storyboard */; };
 		A532865F2A14FE230007D208 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A532865E2A14FE230007D208 /* Assets.xcassets */; };
 		A53286622A14FE230007D208 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A53286602A14FE230007D208 /* LaunchScreen.storyboard */; };
 		A532866D2A14FE230007D208 /* PlanetsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532866C2A14FE230007D208 /* PlanetsAppTests.swift */; };
 		A53286772A14FE230007D208 /* PlanetsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286762A14FE230007D208 /* PlanetsAppUITests.swift */; };
 		A53286792A14FE230007D208 /* PlanetsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286782A14FE230007D208 /* PlanetsAppUITestsLaunchTests.swift */; };
+		A53286872A1503390007D208 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286852A1503390007D208 /* HomeViewController.swift */; };
+		A53286882A1503390007D208 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286862A1503390007D208 /* HomeViewController.xib */; };
+		A532868B2A150EDF0007D208 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532868A2A150EDF0007D208 /* Network.swift */; };
+		A532868E2A1562100007D208 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532868D2A1562100007D208 /* DataModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +41,6 @@
 		A53286522A14FE230007D208 /* PlanetsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53286552A14FE230007D208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A53286572A14FE230007D208 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A53286592A14FE230007D208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A532865C2A14FE230007D208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A532865E2A14FE230007D208 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A53286612A14FE230007D208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A53286632A14FE230007D208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,10 @@
 		A53286722A14FE230007D208 /* PlanetsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanetsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53286762A14FE230007D208 /* PlanetsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsAppUITests.swift; sourceTree = "<group>"; };
 		A53286782A14FE230007D208 /* PlanetsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A53286852A1503390007D208 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A53286862A1503390007D208 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		A532868A2A150EDF0007D208 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		A532868D2A1562100007D208 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 		A53286542A14FE230007D208 /* PlanetsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A532868C2A1561A50007D208 /* Model */,
+				A53286892A150E7A0007D208 /* Network */,
 				A53286552A14FE230007D208 /* AppDelegate.swift */,
 				A53286572A14FE230007D208 /* SceneDelegate.swift */,
-				A53286592A14FE230007D208 /* ViewController.swift */,
-				A532865B2A14FE230007D208 /* Main.storyboard */,
+				A53286852A1503390007D208 /* HomeViewController.swift */,
+				A53286862A1503390007D208 /* HomeViewController.xib */,
 				A532865E2A14FE230007D208 /* Assets.xcassets */,
 				A53286602A14FE230007D208 /* LaunchScreen.storyboard */,
 				A53286632A14FE230007D208 /* Info.plist */,
@@ -125,6 +131,22 @@
 				A53286782A14FE230007D208 /* PlanetsAppUITestsLaunchTests.swift */,
 			);
 			path = PlanetsAppUITests;
+			sourceTree = "<group>";
+		};
+		A53286892A150E7A0007D208 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A532868A2A150EDF0007D208 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A532868C2A1561A50007D208 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A532868D2A1562100007D208 /* DataModels.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +255,7 @@
 			files = (
 				A53286622A14FE230007D208 /* LaunchScreen.storyboard in Resources */,
 				A532865F2A14FE230007D208 /* Assets.xcassets in Resources */,
-				A532865D2A14FE230007D208 /* Main.storyboard in Resources */,
+				A53286882A1503390007D208 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A532865A2A14FE230007D208 /* ViewController.swift in Sources */,
 				A53286562A14FE230007D208 /* AppDelegate.swift in Sources */,
 				A53286582A14FE230007D208 /* SceneDelegate.swift in Sources */,
+				A532868B2A150EDF0007D208 /* Network.swift in Sources */,
+				A53286872A1503390007D208 /* HomeViewController.swift in Sources */,
+				A532868E2A1562100007D208 /* DataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +321,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A532865B2A14FE230007D208 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A532865C2A14FE230007D208 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A53286602A14FE230007D208 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,9 +457,10 @@
 				INFOPLIST_FILE = PlanetsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,9 +485,10 @@
 				INFOPLIST_FILE = PlanetsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
