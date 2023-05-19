@@ -7,10 +7,19 @@
 
 import UIKit
 
+/**
+ TODO:
+ - [ ] Implement the time out on network call get
+ */
+
 class HomeViewController: MVVMViewController<HomeViewModel> {
     
+    @IBOutlet var loadingView: UIActivityIndicatorView!
+    @IBOutlet var errorMessage: UILabel!
+
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,10 +29,22 @@ class HomeViewController: MVVMViewController<HomeViewModel> {
     override func updateView(_ type: HomeViewModel.UpdateType) {
         switch type {
         case .loading:
-            print("loading")
+            loadingView.startAnimating()
         case .updated:
-            print("updated")
+            endLoading()
         }
         
+    }
+    
+    override func handle(_ error: HomeViewModel.ErrorType) {
+        switch error {
+        case .networkError:
+            endLoading()
+        }
+    }
+    
+    private func endLoading() {
+        loadingView.stopAnimating()
+        loadingView.isHidden = true
     }
 }
