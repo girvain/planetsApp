@@ -7,19 +7,23 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
-    var planetList: PlanetList? = nil
+class HomeViewController: MVVMViewController<HomeViewModel> {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        Network().callAPI(url: "https://swapi.dev/api/planets", model: PlanetList.self) { res -> Void in
-            do {
-                self.planetList = try res.get()
-            } catch {
-                print("error")
-            }
+        super.viewDidLoad()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getPlanetsData()
+    }
+    
+    override func updateView(_ type: HomeViewModel.UpdateType) {
+        switch type {
+        case .loading:
+            print("loading")
+        case .updated:
+            print("updated")
         }
+        
     }
 }

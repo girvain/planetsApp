@@ -35,7 +35,7 @@ class Network {
     /**
      Get Requests only
      */
-    func callAPI<T: Codable>(url: String, model: T.Type, completion: @escaping (Swift.Result<T, Error>) -> Void) {
+    func get<T: Codable>(url: String, model: T.Type, completion: @escaping (Swift.Result<T, Error>) -> Void) {
         guard let url = URL(string: url) else {
             return
         }

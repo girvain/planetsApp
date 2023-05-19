@@ -18,6 +18,10 @@
 		A53286882A1503390007D208 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286862A1503390007D208 /* HomeViewController.xib */; };
 		A532868B2A150EDF0007D208 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532868A2A150EDF0007D208 /* Network.swift */; };
 		A532868E2A1562100007D208 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532868D2A1562100007D208 /* DataModels.swift */; };
+		A53286922A178F9D0007D208 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286912A178F9D0007D208 /* ViewModelProtocol.swift */; };
+		A53286962A1790370007D208 /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286952A1790370007D208 /* MVVMViewController.swift */; };
+		A53286982A17991B0007D208 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286972A17991B0007D208 /* HomeViewModel.swift */; };
+		A532869A2A17C0610007D208 /* ThreadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286992A17C0610007D208 /* ThreadExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		A53286862A1503390007D208 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A532868A2A150EDF0007D208 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A532868D2A1562100007D208 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		A53286912A178F9D0007D208 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		A53286952A1790370007D208 /* MVVMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
+		A53286972A17991B0007D208 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A53286992A17C0610007D208 /* ThreadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +111,13 @@
 		A53286542A14FE230007D208 /* PlanetsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A532868F2A178F640007D208 /* Framework */,
 				A532868C2A1561A50007D208 /* Model */,
 				A53286892A150E7A0007D208 /* Network */,
 				A53286552A14FE230007D208 /* AppDelegate.swift */,
 				A53286572A14FE230007D208 /* SceneDelegate.swift */,
 				A53286852A1503390007D208 /* HomeViewController.swift */,
+				A53286972A17991B0007D208 /* HomeViewModel.swift */,
 				A53286862A1503390007D208 /* HomeViewController.xib */,
 				A532865E2A14FE230007D208 /* Assets.xcassets */,
 				A53286602A14FE230007D208 /* LaunchScreen.storyboard */,
@@ -147,6 +157,24 @@
 				A532868D2A1562100007D208 /* DataModels.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A532868F2A178F640007D208 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A53286902A178F7A0007D208 /* MVVM */,
+				A53286992A17C0610007D208 /* ThreadExtension.swift */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		A53286902A178F7A0007D208 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				A53286912A178F9D0007D208 /* ViewModelProtocol.swift */,
+				A53286952A1790370007D208 /* MVVMViewController.swift */,
+			);
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53286962A1790370007D208 /* MVVMViewController.swift in Sources */,
+				A53286982A17991B0007D208 /* HomeViewModel.swift in Sources */,
 				A53286562A14FE230007D208 /* AppDelegate.swift in Sources */,
 				A53286582A14FE230007D208 /* SceneDelegate.swift in Sources */,
+				A53286922A178F9D0007D208 /* ViewModelProtocol.swift in Sources */,
 				A532868B2A150EDF0007D208 /* Network.swift in Sources */,
 				A53286872A1503390007D208 /* HomeViewController.swift in Sources */,
+				A532869A2A17C0610007D208 /* ThreadExtension.swift in Sources */,
 				A532868E2A1562100007D208 /* DataModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
