@@ -20,7 +20,8 @@ class HomeViewModel: ViewModelProtocol {
                 self.planetList = try res.get()
                 self.update?(.updated)
             } catch {
-                print("error")
+                // probably not a network error at this point but i'll hopefully come back to this
+                self.error?(.networkError)
             }
         }
         
