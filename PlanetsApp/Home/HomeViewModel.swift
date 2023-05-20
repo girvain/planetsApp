@@ -11,6 +11,15 @@ class HomeViewModel: ViewModelProtocol {
     
     var planetList: PlanetList? = nil
     
+    func getPlanetListSize() -> Int {
+        return planetList?.results.count ?? 0
+    }
+    
+    func getPlanet(indexPath: Int) -> Result? {
+        return planetList?.results[indexPath]
+    }
+    
+    // MARK: - Network
     func getPlanetsData() {
         // set state to loading
         self.update?(.loading)

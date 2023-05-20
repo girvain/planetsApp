@@ -56,13 +56,13 @@ class HomeViewController: MVVMViewController<HomeViewModel> {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.planetList?.results.count ?? 0
+        return viewModel.getPlanetListSize()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetTableViewCell", for: indexPath) as! PlanetTableViewCell
-        if let result = viewModel.planetList?.results[indexPath.row] {
-            cell.setData(data: result)
+        if let result = viewModel.getPlanet(indexPath: indexPath.row) {
+            cell.configure(data: result) // set the viewModels data so it can update the view
         }
         return cell
     }
