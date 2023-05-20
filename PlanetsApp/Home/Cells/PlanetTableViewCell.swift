@@ -24,7 +24,7 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
         collectionView.dataSource = self
         collectionViewFilms.dataSource = self
         collectionView.register(UINib(nibName: "ResidentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ResidentCollectionViewCell")
-        collectionViewFilms.register(UINib(nibName: "FilmsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FilmsCollectionViewCell")
+        collectionViewFilms.register(UINib(nibName: "FilmCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FilmCollectionViewCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,18 +50,8 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
             population.text = viewModel?.model?.population
             climate.text = viewModel?.model?.climate
             terrain.text = viewModel?.model?.terrain
-//            spinner.isHidden = true
-//            spinner.stopAnimating()
-//            collectionView.isHidden = false
-//            collectionView.sizeToFit()
-//            collectionView.reloadData()
             toggleUpdatedCollectionView(show: true)
         case .loading:
-//            spinner.isHidden = false
-//            spinner.startAnimating()
-//            collectionView.isHidden = false
-//            collectionView.sizeToFit()
-//            collectionView.reloadData()
             toggleUpdatedCollectionView(show: false)
         }
     }
@@ -96,22 +86,22 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
 extension PlanetTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
-            return viewModel?.getFilmsListCount() ?? 0
+            return viewModel?.getResidentsListCount() ?? 0
         }
-        return viewModel?.getResidentsListCount() ?? 0
+        return viewModel?.getFilmsListCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResidentCollectionViewCell", for: indexPath) as! ResidentCollectionViewCell
-            if let film = viewModel?.getFilm(indexPath: indexPath.row) {
+            if let film = viewModel?.getResident(indexPath: indexPath.row) {
                 cell.configure(data: film)
             }
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilmsCollectionViewCell", for: indexPath) as! FilmsCollectionViewCell
-        if let film = viewModel?.getResident(indexPath: indexPath.row) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilmCollectionViewCell", for: indexPath) as! FilmCollectionViewCell
+        if let film = viewModel?.getFilm(indexPath: indexPath.row) {
             cell.configure(data: film)
         }
         return cell

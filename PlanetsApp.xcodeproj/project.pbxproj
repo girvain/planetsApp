@@ -24,12 +24,12 @@
 		A532869A2A17C0610007D208 /* ThreadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286992A17C0610007D208 /* ThreadExtension.swift */; };
 		A53286A72A17D4940007D208 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286A52A17D4940007D208 /* PlanetTableViewCell.swift */; };
 		A53286A82A17D4940007D208 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286A62A17D4940007D208 /* PlanetTableViewCell.xib */; };
-		A53286AB2A180B950007D208 /* ResidentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286A92A180B950007D208 /* ResidentCollectionViewCell.swift */; };
-		A53286AC2A180B950007D208 /* ResidentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286AA2A180B950007D208 /* ResidentCollectionViewCell.xib */; };
+		A53286AB2A180B950007D208 /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286A92A180B950007D208 /* FilmCollectionViewCell.swift */; };
+		A53286AC2A180B950007D208 /* FilmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286AA2A180B950007D208 /* FilmCollectionViewCell.xib */; };
 		A53286AE2A1821050007D208 /* MVVMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286AD2A1821050007D208 /* MVVMTableViewCell.swift */; };
 		A53286B02A1821D50007D208 /* PlanetTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286AF2A1821D50007D208 /* PlanetTableViewCellViewModel.swift */; };
-		A53286B52A196A890007D208 /* FilmsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286B32A196A890007D208 /* FilmsCollectionViewCell.swift */; };
-		A53286B62A196A890007D208 /* FilmsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286B42A196A890007D208 /* FilmsCollectionViewCell.xib */; };
+		A53286B52A196A890007D208 /* ResidentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286B32A196A890007D208 /* ResidentCollectionViewCell.swift */; };
+		A53286B62A196A890007D208 /* ResidentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +71,12 @@
 		A53286992A17C0610007D208 /* ThreadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadExtension.swift; sourceTree = "<group>"; };
 		A53286A52A17D4940007D208 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
 		A53286A62A17D4940007D208 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
-		A53286A92A180B950007D208 /* ResidentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentCollectionViewCell.swift; sourceTree = "<group>"; };
-		A53286AA2A180B950007D208 /* ResidentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResidentCollectionViewCell.xib; sourceTree = "<group>"; };
+		A53286A92A180B950007D208 /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
+		A53286AA2A180B950007D208 /* FilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell.xib; sourceTree = "<group>"; };
 		A53286AD2A1821050007D208 /* MVVMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTableViewCell.swift; sourceTree = "<group>"; };
 		A53286AF2A1821D50007D208 /* PlanetTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		A53286B32A196A890007D208 /* FilmsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsCollectionViewCell.swift; sourceTree = "<group>"; };
-		A53286B42A196A890007D208 /* FilmsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmsCollectionViewCell.xib; sourceTree = "<group>"; };
+		A53286B32A196A890007D208 /* ResidentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentCollectionViewCell.swift; sourceTree = "<group>"; };
+		A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResidentCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,10 +209,10 @@
 				A53286A52A17D4940007D208 /* PlanetTableViewCell.swift */,
 				A53286AF2A1821D50007D208 /* PlanetTableViewCellViewModel.swift */,
 				A53286A62A17D4940007D208 /* PlanetTableViewCell.xib */,
-				A53286A92A180B950007D208 /* ResidentCollectionViewCell.swift */,
-				A53286AA2A180B950007D208 /* ResidentCollectionViewCell.xib */,
-				A53286B32A196A890007D208 /* FilmsCollectionViewCell.swift */,
-				A53286B42A196A890007D208 /* FilmsCollectionViewCell.xib */,
+				A53286A92A180B950007D208 /* FilmCollectionViewCell.swift */,
+				A53286AA2A180B950007D208 /* FilmCollectionViewCell.xib */,
+				A53286B32A196A890007D208 /* ResidentCollectionViewCell.swift */,
+				A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,10 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53286622A14FE230007D208 /* LaunchScreen.storyboard in Resources */,
-				A53286AC2A180B950007D208 /* ResidentCollectionViewCell.xib in Resources */,
+				A53286AC2A180B950007D208 /* FilmCollectionViewCell.xib in Resources */,
 				A532865F2A14FE230007D208 /* Assets.xcassets in Resources */,
 				A53286882A1503390007D208 /* HomeViewController.xib in Resources */,
-				A53286B62A196A890007D208 /* FilmsCollectionViewCell.xib in Resources */,
+				A53286B62A196A890007D208 /* ResidentCollectionViewCell.xib in Resources */,
 				A53286A82A17D4940007D208 /* PlanetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +354,7 @@
 				A53286962A1790370007D208 /* MVVMViewController.swift in Sources */,
 				A53286982A17991B0007D208 /* HomeViewModel.swift in Sources */,
 				A53286562A14FE230007D208 /* AppDelegate.swift in Sources */,
-				A53286AB2A180B950007D208 /* ResidentCollectionViewCell.swift in Sources */,
+				A53286AB2A180B950007D208 /* FilmCollectionViewCell.swift in Sources */,
 				A53286582A14FE230007D208 /* SceneDelegate.swift in Sources */,
 				A53286922A178F9D0007D208 /* ViewModelProtocol.swift in Sources */,
 				A532868B2A150EDF0007D208 /* Network.swift in Sources */,
@@ -363,7 +363,7 @@
 				A532869A2A17C0610007D208 /* ThreadExtension.swift in Sources */,
 				A53286B02A1821D50007D208 /* PlanetTableViewCellViewModel.swift in Sources */,
 				A532868E2A1562100007D208 /* DataModels.swift in Sources */,
-				A53286B52A196A890007D208 /* FilmsCollectionViewCell.swift in Sources */,
+				A53286B52A196A890007D208 /* ResidentCollectionViewCell.swift in Sources */,
 				A53286A72A17D4940007D208 /* PlanetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
