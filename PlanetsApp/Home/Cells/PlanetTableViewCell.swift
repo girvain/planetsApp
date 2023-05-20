@@ -14,12 +14,17 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
     @IBOutlet weak var climate: UILabel!
     @IBOutlet weak var terrain: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var collectionViewFilms: UICollectionView!
+    @IBOutlet weak var spinnerFilms: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 //        collectionView.delegate = self
         collectionView.dataSource = self
+        collectionViewFilms.dataSource = self
         collectionView.register(UINib(nibName: "ResidentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ResidentCollectionViewCell")
+        collectionViewFilms.register(UINib(nibName: "FilmsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FilmsCollectionViewCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +41,6 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
     
     func configure(data: Result) {
         self.viewModel?.setDataModel(model: data)
-        
     }
     
     override func updateView(_ type: PlanetTableViewCellViewModel.UpdateType) {
@@ -46,23 +50,71 @@ class PlanetTableViewCell: MVVMTableViewCell<PlanetTableViewCellViewModel> {
             population.text = viewModel?.model?.population
             climate.text = viewModel?.model?.climate
             terrain.text = viewModel?.model?.terrain
+//            spinner.isHidden = true
+//            spinner.stopAnimating()
+//            collectionView.isHidden = false
+//            collectionView.sizeToFit()
+//            collectionView.reloadData()
+            toggleUpdatedCollectionView(show: true)
         case .loading:
-            print("loading")
+//            spinner.isHidden = false
+//            spinner.startAnimating()
+//            collectionView.isHidden = false
+//            collectionView.sizeToFit()
+//            collectionView.reloadData()
+            toggleUpdatedCollectionView(show: false)
         }
-        
+    }
+    
+    func toggleUpdatedCollectionView(show: Bool) {
+        if show {
+            spinner.isHidden = true
+            spinner.stopAnimating()
+            collectionView.isHidden = false
+            collectionView.sizeToFit()
+            collectionView.reloadData()
+            spinnerFilms.isHidden = true
+            spinnerFilms.stopAnimating()
+            collectionViewFilms.isHidden = false
+            collectionViewFilms.sizeToFit()
+            collectionViewFilms.reloadData()
+        } else {
+            spinner.isHidden = false
+            spinner.startAnimating()
+            collectionView.isHidden = false
+            collectionView.sizeToFit()
+            collectionView.reloadData()
+            spinnerFilms.isHidden = false
+            spinnerFilms.startAnimating()
+            collectionViewFilms.isHidden = false
+            collectionViewFilms.sizeToFit()
+            collectionViewFilms.reloadData()
+        }
     }
 }
 
 extension PlanetTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.getFilmsListCount() ?? 0
+        if collectionView == self.collectionView {
+            return viewModel?.getFilmsListCount() ?? 0
+        }
+        return viewModel?.getResidentsListCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResidentCollectionViewCell", for: indexPath) as! ResidentCollectionViewCell
-        if let film = viewModel?.getFilm(indexPath: indexPath.row) {
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResidentCollectionViewCell", for: indexPath) as! ResidentCollectionViewCell
+            if let film = viewModel?.getFilm(indexPath: indexPath.row) {
+                cell.configure(data: film)
+            }
+            return cell
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilmsCollectionViewCell", for: indexPath) as! FilmsCollectionViewCell
+        if let film = viewModel?.getResident(indexPath: indexPath.row) {
             cell.configure(data: film)
         }
         return cell
+        
     }
 }

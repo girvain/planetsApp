@@ -24,13 +24,13 @@ class HomeViewModel: ViewModelProtocol {
         // set state to loading
         self.update?(.loading)
         // get the data using networking service
-        Network().get(url: "https://swapi.dev/api/planets", model: PlanetList.self) { res -> Void in
+        Network().get(url: "https://swapi.dev/api/planets", model: PlanetList.self) { [weak self] res -> Void in
             do {
-                self.planetList = try res.get()
-                self.update?(.updated)
+                self?.planetList = try res.get()
+                self?.update?(.updated)
             } catch {
                 // probably not a network error at this point but i'll hopefully come back to this
-                self.error?(.networkError)
+                self?.error?(.networkError)
             }
         }
         

@@ -33,3 +33,42 @@ struct Result: Codable {
         case population, residents, films, created, edited, url
     }
 }
+
+// MARK: - Film
+struct Film: Codable {
+    let title: String
+    let episodeID: Int
+    let openingCrawl, director, producer, releaseDate: String
+    let characters, planets, starships, vehicles: [String]
+    let species: [String]
+    let created, edited: String
+    let url: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case episodeID = "episode_id"
+        case openingCrawl = "opening_crawl"
+        case director, producer
+        case releaseDate = "release_date"
+        case characters, planets, starships, vehicles, species, created, edited, url
+    }
+}
+
+// MARK: - Resident
+struct Resident: Codable {
+    let name, height, mass, hairColor: String
+    let skinColor, eyeColor, birthYear, gender: String
+    let homeworld: String
+    let films: [String]
+    let created, edited: String
+    let url: String
+
+    enum CodingKeys: String, CodingKey {
+        case name, height, mass
+        case hairColor = "hair_color"
+        case skinColor = "skin_color"
+        case eyeColor = "eye_color"
+        case birthYear = "birth_year"
+        case gender, homeworld, films, created, edited, url
+    }
+}
