@@ -8,21 +8,25 @@
 import Foundation
 
 // MARK: - PlanetList
-struct PlanetList: Codable {
+class PlanetList: Codable {
     let count: Int
     let next: String?
     let previous: String?
-    let results: [Result]
+    var results: [Result]
 }
 
 // MARK: - Result
-struct Result: Codable {
+class Result: Codable {
     let name, rotationPeriod, orbitalPeriod, diameter: String
     let climate, gravity, terrain, surfaceWater: String
     let population: String
     let residents, films: [String]
     let created, edited: String
     let url: String
+    
+    // Additional
+    var filmsData: [Film]?
+    var residentsData: [Resident]?
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -30,12 +34,12 @@ struct Result: Codable {
         case orbitalPeriod = "orbital_period"
         case diameter, climate, gravity, terrain
         case surfaceWater = "surface_water"
-        case population, residents, films, created, edited, url
+        case population, residents, films, created, edited, url, filmsData, residentsData
     }
 }
 
 // MARK: - Film
-struct Film: Codable {
+class Film: Codable {
     let title: String
     let episodeID: Int
     let openingCrawl, director, producer, releaseDate: String
@@ -55,7 +59,7 @@ struct Film: Codable {
 }
 
 // MARK: - Resident
-struct Resident: Codable {
+class Resident: Codable {
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear, gender: String
     let homeworld: String

@@ -94,8 +94,8 @@ extension PlanetTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResidentCollectionViewCell", for: indexPath) as! ResidentCollectionViewCell
-            if let film = viewModel?.getResident(indexPath: indexPath.row) {
-                cell.configure(data: film)
+            if let resident = viewModel?.getResident(indexPath: indexPath.row) {
+                cell.configure(data: resident)
             }
             return cell
         }

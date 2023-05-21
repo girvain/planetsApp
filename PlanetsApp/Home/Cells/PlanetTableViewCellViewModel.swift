@@ -10,46 +10,39 @@ import Foundation
 class PlanetTableViewCellViewModel: ViewModelProtocol {
     
     var model: Result? = nil
-    var films = [Film]()
-    var hasFilmData = false
-    var residents = [Resident]()
-    var hasResidentsData = false
     
     func setDataModel(model: Result) {
-        self.model = model
         // update now that we have a data model set
-        update?(.updated)
+        self.model = model
         // now set the state to loading
-        if !hasFilmData {
+        update?(.updated)
+        // now check if we have urls to fetch the data from, and if we have done it already
+        if model.filmsData == nil {
             update?(.loading)
+            self.model?.filmsData = []
             self.getFilmData()
         }
-        if !hasResidentsData {
+        if model.residentsData == nil {
             update?(.loading)
+            self.model?.residentsData = []
             self.getResidentData()
         }
     }
     
     func getFilmsListCount() -> Int {
-        return films.count
+        return model?.filmsData?.count ?? 0
     }
     
     func getResidentsListCount() -> Int {
-        return residents.count
+        return model?.residentsData?.count ?? 0
     }
     
     func getFilm(indexPath: Int) -> Film? {
-        if films.isEmpty {
-            return nil
-        }
-        return films[indexPath]
+        return model?.filmsData?[indexPath]
     }
     
     func getResident(indexPath: Int) -> Resident? {
-        if residents.isEmpty {
-            return nil
-        }
-        return residents[indexPath]
+        return model?.residentsData?[indexPath]
     }
 
     
@@ -61,7 +54,7 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
             group.enter()
             Network().get(url: url, model: Film.self) { [weak self] res in
                 do {
-                    try self?.films.append(res.get())
+                    try self?.model?.filmsData?.append(res.get())
                 } catch {
                     print("failure")
                 }
@@ -72,8 +65,6 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
 
         group.notify(queue: .main) {
             // this is called when every `enter` call is matched up with a `leave` Call
-            print("it worked")
-            self.hasFilmData = true
             self.update?(.updated)
         }
     }
@@ -84,7 +75,7 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
             group.enter()
             Network().get(url: url, model: Resident.self) { [weak self] res in
                 do {
-                    try self?.residents.append(res.get())
+                    try self?.model?.residentsData?.append(res.get())
                 } catch {
                     print("failure")
                 }
@@ -93,7 +84,6 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
             }
         }
         group.notify(queue: .main) {
-            self.hasResidentsData = true
             self.update?(.updated)
         }
     }
