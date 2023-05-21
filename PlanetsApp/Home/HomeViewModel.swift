@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Network
 
 class HomeViewModel: ViewModelProtocol {
     
     var planetList: PlanetList? = nil
+    let monitor = NWPathMonitor()
     
     func getPlanetListSize() -> Int {
         return planetList?.results.count ?? 0
@@ -26,14 +28,41 @@ class HomeViewModel: ViewModelProtocol {
         // get the data using networking service
         Network().get(url: "https://swapi.dev/api/planets", model: PlanetList.self) { [weak self] res -> Void in
             do {
-                self?.planetList = try res.get()
+                let planetListLocal = try res.get()
+                self?.planetList = planetListLocal
                 self?.update?(.updated)
+                try FileCacheService().save(model: planetListLocal, toFilename: "planetList")
             } catch {
                 // probably not a network error at this point but i'll hopefully come back to this
                 self?.error?(.networkError)
             }
         }
-        
+    }
+    
+    func getPlanetsDataOffline() {
+        do {
+            self.update?(.loading)
+            self.planetList = try FileCacheService().loadJSON(model: PlanetList.self, withFilename: "planetList")
+            self.update?(.updated)
+        } catch {
+            // TODO: add proper error state for this
+            self.error?(.networkError)
+        }
+    }
+    
+    func getPlanets() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            if path.status == .satisfied {
+                print("Connected")
+                self?.getPlanetsData()
+           } else {
+               print("Disconnected")
+               self?.getPlanetsDataOffline()
+           }
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+        monitor.cancel()
     }
     
     // MARK: - MVVM binding stuff

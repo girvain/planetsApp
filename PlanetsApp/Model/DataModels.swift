@@ -16,7 +16,7 @@ class PlanetList: Codable {
 }
 
 // MARK: - Result
-class Result: Codable {
+class Result: NSObject, Codable {
     let name, rotationPeriod, orbitalPeriod, diameter: String
     let climate, gravity, terrain, surfaceWater: String
     let population: String
@@ -35,6 +35,25 @@ class Result: Codable {
         case diameter, climate, gravity, terrain
         case surfaceWater = "surface_water"
         case population, residents, films, created, edited, url, filmsData, residentsData
+    }
+    
+    init(name: String, rotationPeriod: String, orbitalPeriod: String, diameter: String, climate: String, gravity: String, terrain: String, surfaceWater: String, population: String, residents: [String], films: [String], created: String, edited: String, url: String, filmsData: [Film]? = nil, residentsData: [Resident]? = nil) {
+        self.name = name
+        self.rotationPeriod = rotationPeriod
+        self.orbitalPeriod = orbitalPeriod
+        self.diameter = diameter
+        self.climate = climate
+        self.gravity = gravity
+        self.terrain = terrain
+        self.surfaceWater = surfaceWater
+        self.population = population
+        self.residents = residents
+        self.films = films
+        self.created = created
+        self.edited = edited
+        self.url = url
+        self.filmsData = filmsData
+        self.residentsData = residentsData
     }
 }
 

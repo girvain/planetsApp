@@ -26,7 +26,7 @@ class HomeViewController: MVVMViewController<HomeViewModel> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getPlanetsData()
+        viewModel.getPlanets()
     }
     
     override func updateView(_ type: HomeViewModel.UpdateType) {

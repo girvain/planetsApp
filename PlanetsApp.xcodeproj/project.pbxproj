@@ -30,6 +30,8 @@
 		A53286B02A1821D50007D208 /* PlanetTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286AF2A1821D50007D208 /* PlanetTableViewCellViewModel.swift */; };
 		A53286B52A196A890007D208 /* ResidentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286B32A196A890007D208 /* ResidentCollectionViewCell.swift */; };
 		A53286B62A196A890007D208 /* ResidentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */; };
+		A53286B92A1A9D410007D208 /* FileCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286B82A1A9D410007D208 /* FileCacheService.swift */; };
+		A53286BB2A1ABD3D0007D208 /* PlanetTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53286BA2A1ABD3D0007D208 /* PlanetTableViewCellViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		A53286AF2A1821D50007D208 /* PlanetTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		A53286B32A196A890007D208 /* ResidentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentCollectionViewCell.swift; sourceTree = "<group>"; };
 		A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResidentCollectionViewCell.xib; sourceTree = "<group>"; };
+		A53286B82A1A9D410007D208 /* FileCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCacheService.swift; sourceTree = "<group>"; };
+		A53286BA2A1ABD3D0007D208 /* PlanetTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 		A53286542A14FE230007D208 /* PlanetsApp */ = {
 			isa = PBXGroup;
 			children = (
+				A53286B72A1A9AFB0007D208 /* Services */,
 				A532868F2A178F640007D208 /* Framework */,
 				A532868C2A1561A50007D208 /* Model */,
 				A53286892A150E7A0007D208 /* Network */,
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A532866C2A14FE230007D208 /* PlanetsAppTests.swift */,
+				A53286BA2A1ABD3D0007D208 /* PlanetTableViewCellViewModelTests.swift */,
 			);
 			path = PlanetsAppTests;
 			sourceTree = "<group>";
@@ -215,6 +221,14 @@
 				A53286B42A196A890007D208 /* ResidentCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A53286B72A1A9AFB0007D208 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A53286B82A1A9D410007D208 /* FileCacheService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +368,7 @@
 				A53286962A1790370007D208 /* MVVMViewController.swift in Sources */,
 				A53286982A17991B0007D208 /* HomeViewModel.swift in Sources */,
 				A53286562A14FE230007D208 /* AppDelegate.swift in Sources */,
+				A53286B92A1A9D410007D208 /* FileCacheService.swift in Sources */,
 				A53286AB2A180B950007D208 /* FilmCollectionViewCell.swift in Sources */,
 				A53286582A14FE230007D208 /* SceneDelegate.swift in Sources */,
 				A53286922A178F9D0007D208 /* ViewModelProtocol.swift in Sources */,
@@ -372,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53286BB2A1ABD3D0007D208 /* PlanetTableViewCellViewModelTests.swift in Sources */,
 				A532866D2A14FE230007D208 /* PlanetsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

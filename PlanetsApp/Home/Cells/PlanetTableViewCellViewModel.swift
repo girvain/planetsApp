@@ -10,6 +10,8 @@ import Foundation
 class PlanetTableViewCellViewModel: ViewModelProtocol {
     
     var model: Result? = nil
+    // set this as mutable so it can be changed out if needed for unit testing
+    var network = Network()
     
     func setDataModel(model: Result) {
         // update now that we have a data model set
@@ -52,7 +54,7 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
         let group = DispatchGroup()
         model?.films.forEach { url in
             group.enter()
-            Network().get(url: url, model: Film.self) { [weak self] res in
+            network.get(url: url, model: Film.self) { [weak self] res in
                 do {
                     try self?.model?.filmsData?.append(res.get())
                 } catch {
@@ -73,7 +75,7 @@ class PlanetTableViewCellViewModel: ViewModelProtocol {
         let group = DispatchGroup()
         model?.residents.forEach { url in
             group.enter()
-            Network().get(url: url, model: Resident.self) { [weak self] res in
+            network.get(url: url, model: Resident.self) { [weak self] res in
                 do {
                     try self?.model?.residentsData?.append(res.get())
                 } catch {
